@@ -141,10 +141,10 @@ open class ImageSourceView: UIView {
 	
 	open override var intrinsicContentSize: CGSize {
 		return imageSource?.properties(at: displayedIndex)?.imageSize ??
-			CGSize(width: UIViewNoIntrinsicMetric, height: UIViewNoIntrinsicMetric)
+            CGSize(width: UIView.noIntrinsicMetric, height: UIView.noIntrinsicMetric)
 	}
 	
-	open override var contentMode: UIViewContentMode {
+    open override var contentMode: UIView.ContentMode {
 		didSet {
 			displayView.contentMode = contentMode
 		}
@@ -214,7 +214,7 @@ open class ImageSourceView: UIView {
 			self.displayLink = CADisplayLink(callback: { [weak self] link in
 				self?.displayLinkFired(link)
 			})
-			displayLink?.add(to: RunLoop.main, forMode: .commonModes)
+            displayLink?.add(to: RunLoop.main, forMode: RunLoop.Mode.common)
 			if #available(iOS 10.0, *) {
 				displayLink?.preferredFramesPerSecond = 60
 			}

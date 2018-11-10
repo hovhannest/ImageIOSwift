@@ -15,7 +15,7 @@ extension ImageSource {
 		guard let cgImage = self.cgImage(at: index, options: options) else { return nil }
 		
 		let exifOrientation = properties(at: index, options: options)?.orientation ?? 1
-		let orientation = UIImageOrientation(exifOrientation: exifOrientation)
+        let orientation = UIImage.Orientation(exifOrientation: exifOrientation)
 		
 		return UIImage(cgImage: cgImage, scale: 1, orientation: orientation)
 	}
@@ -24,7 +24,7 @@ extension ImageSource {
 		guard let cgImage = self.cgThumbnailImage(at: index, options: options) else { return nil }
 		
 		let exifOrientation = properties(at: index, options: options)?.orientation ?? 1
-		let orientation = UIImageOrientation(exifOrientation: exifOrientation)
+        let orientation = UIImage.Orientation(exifOrientation: exifOrientation)
 		
 		return UIImage(cgImage: cgImage, scale: 1, orientation: orientation)
 	}
